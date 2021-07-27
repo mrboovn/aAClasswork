@@ -36,23 +36,15 @@ class Board
 
 end
 
-class Piece 
-    attr_reader :color
-    def initialize(color, board, pos)
-        @color = color 
-        @board = Board.new
-        @pos = pos 
-    end
 
-end
 
-chess = Board.new 
-piece1 = Piece.new('black',chess, [1,2])
-piece2 = Piece.new('white',chess, [2,3])
-chess[[1,2]] = piece1.color
-chess[[2,3]] = piece2.color
-p chess
+# chess = Board.new 
+# piece1 = Piece.new('black',chess, [1,2])
+# piece2 = Piece.new('white',chess, [2,3])
+# chess[[1,2]] = piece1.color
+# chess[[2,3]] = piece2.color
+# p chess
 
-chess.move_piece([1,2],[4,4])
+# chess.move_piece([1,2],[4,4])
 
-p chess
+# p chess
