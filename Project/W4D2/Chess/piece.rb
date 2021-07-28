@@ -19,28 +19,33 @@ end
 class NullPiece < Piece
     include Singleton
 
-    def initialize
-        super
+    def initialize(color, board, pos)
+        super("", board, pos)
     end
 
 end
 
 class Pawn < Piece
 
-
+    attr_reader :row, :col
+    def initialize(color, board, pos)
+        super(color, board, pos)
+        @row = pos[0]
+        @col = pos[1]
+    end
     # private
     def at_start_row?
-        return true if @pos[0] == 1 || @pos[0] == 6
+        return true if @row == 1 || @row == 6
     end
 
     def valid_moves
         move = self.forward_dir
         moves = []
-        if @board.valid_pos?([self.pos[0] + move, self.pos[1]])
-            moves << [self.pos[0] + move, self.pos[1]]
+        if @board.valid_pos?([self.row + move, self.col])
+            moves << [self.row + move, self.col]
         end
-        if self.at_start_row? && @board.valid_pos?([self.pos[0] + move, self.pos[1]]) && @board.valid_pos?([self.pos[0] + move * 2, self.pos[1]])
-            moves << [self.pos[0] + move * 2, self.pos[1]]
+        if self.at_start_row? && @board.valid_pos?([self.row + move, self.col]) && @board.valid_pos?([self.row + move * 2, self.col])
+            moves << [self.row + move * 2, self.col]
         end
     end
 
@@ -51,6 +56,15 @@ class Pawn < Piece
             return 1
         end
     end
+
+    def side_attacks
+        direction =  self.forward_dir
+        left_diagonal = [self.row + direction, self.col - 1]
+        right_diagonal = [self.row + direction, self.col + 1]
+        if @board[left_diagonal].nil? && @board[left_diagonal].color != self.color 
+            @board.move_piece(self.pos, )
+
+
         
 end
 
