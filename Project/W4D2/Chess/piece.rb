@@ -1,17 +1,20 @@
-require_relative "board.rb"
-require "singleton"
-
 class Piece 
-    attr_reader :color, :moves, :pos
+  attr_reader :color, :pos, :row, :col
 
-    def initialize(color, board, pos)
-        @color = color 
-        @board = Board.new
-        @pos = pos
-    end
+  def initialize(color, board, pos)
+      @color = color 
+      @board = board
+      @pos = pos
+      @board[pos] = self
+      @row, @col = @pos
+  end
 
-    def pos=(val)
-        @pos = val
-    end
+  def valid_moves
+      moves = []
+  end
+
+  def pos=(val)
+      @pos = val
+  end
 
 end
