@@ -2,6 +2,7 @@ module Stepable
   def moves
     # create array to collect moves
     array = []
+    
     # iterate through each of the piece's possible move_diffs
       # for each move_diff, increment the piece's position to generate a new position
       # add the new position to the moves array if it is:

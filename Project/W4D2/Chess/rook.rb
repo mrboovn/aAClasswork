@@ -1,8 +1,8 @@
 require_relative 'piece'
-# require_relative 'slideable'
+require_relative 'slideable'
 
 class Rook < Piece
-  # include Slideable
+  include Slideable
   attr_reader :row, :col
 
   def initialize(color, board, pos)

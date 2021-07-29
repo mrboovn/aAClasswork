@@ -23,9 +23,9 @@ class Board
 
   def valid_pos?(pos)
     row,col = pos
-    if pos[0].nil?
-      return false 
-    end
+    # if pos[0].nil?
+    #   return false 
+    # end
     if row < 0 || col < 0 || row > 7 || col > 7 
       return false 
     else 
