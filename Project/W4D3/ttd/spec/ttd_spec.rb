@@ -14,3 +14,26 @@ describe 'Array#two_sum' do
     expect([-1,0,2,-2,1].two_sum).to eq([[0, 4],[2, 3]])
   end
 end
+
+describe "my_transpose" do 
+  it "transposes 2D array" do
+    a = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8]
+  ]
+  expect(my_transpose(a)).to eq([[0, 3, 6],[1, 4, 7], [2, 5, 8]])
+
+  end
+
+end
+
+describe "stock_picker" do 
+ it "return the most profitable pair of days" do 
+  a = [2, 14, 16, 8, 20, 12, 4]
+  expect(stock_picker(a)).to eq([0, 4])
+
+ end 
+
+end
+
