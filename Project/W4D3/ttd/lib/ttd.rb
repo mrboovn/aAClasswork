@@ -17,4 +17,5 @@ class Array
 end
 
 a = [-1,0,2,-2,1]
+p a
 p a.two_sum
