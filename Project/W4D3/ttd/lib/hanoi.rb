@@ -6,13 +6,17 @@ class Hanoi
   end
 
   def play
+    display
     until won?
       puts "Where do you want to get the disk?"
       from_input = gets.to_i
       puts "Where do you want to put the disk?"
       to_input = gets.to_i
-      move
+      move(from_input, to_input)
+      display
     end
+    puts "We won!"
+
 
   end
 
@@ -31,7 +35,7 @@ class Hanoi
 
   def valid_move?(from_input, to_input)
     if from_input > 0 && from_input < 3 || to_input > 0 && to_input < 3
-       if @stacks[to_input].length == 0 && @stacks[from_input][0] != nil
+       if @stacks[to_input].length <= 1 && @stacks[from_input][0] != nil
         return true 
        elsif @stacks[from_input][0] < @stacks[to_input][0]
         return true 
@@ -50,7 +54,7 @@ class Hanoi
   end
 
   def won?
-    if @stacks[to_input] == 3
+    if @stacks[2].length == 3
       return true  
     else
       return false 
@@ -59,7 +63,4 @@ class Hanoi
 end
 
 a = Hanoi.new
-#a.display
-a.valid_move?(0,2)
-a.move(0,2)
-a.display
+a.play
