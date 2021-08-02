@@ -30,29 +30,38 @@ class MaxIntSet
     end 
   end
 
-  def validate!(num)
-  end
+  # def validate!(num)
+  # end
 end
 
 
 class IntSet
+
+  attr_reader :store, :num_buckets
   def initialize(num_buckets = 20)
     @store = Array.new(num_buckets) { Array.new }
+    @num_buckets = num_buckets
   end
 
   def insert(num)
+    return false if self[num].include?(num)
+    self[num] << num
   end
 
   def remove(num)
+    self[num].delete(num)
   end
 
   def include?(num)
+    self[num].include?(num)
   end
 
   private
 
   def [](num)
     # optional but useful; return the bucket corresponding to `num`
+    self.store[num % num_buckets]
+    
   end
 
   def num_buckets
