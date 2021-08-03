@@ -4,11 +4,28 @@ end
 
 class Array
   def hash
+
+    hash_int = 0
+    self.each_with_index do |el, i|
+      hash_int += (el + i).hash
+    
+    end
+    hash_int
   end
+
+  # 1 + 0 
+  # 2 + 1 
+  # 3 + 2 
+
+  # 3 + 0 
+  # 2 + 1
+  # 1 + 2
 end
 
 class String
   def hash
+    chars = self.split("")
+    
   end
 end
 

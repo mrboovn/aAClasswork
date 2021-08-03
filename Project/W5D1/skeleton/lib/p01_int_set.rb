@@ -70,7 +70,8 @@ class IntSet
 end
 
 class ResizingIntSet
-  attr_reader  :store, :num_buckets
+  attr_reader :num_buckets
+  attr_accessor :store
 
   def initialize(num_buckets = 20)
     @store = Array.new(num_buckets) { Array.new }
@@ -86,6 +87,9 @@ class ResizingIntSet
     count
   end
   def insert(num)
+    if count == @num_buckets
+      resize!
+    end
     return false if self[num].include?(num)
     self[num] << num 
   end
@@ -113,7 +117,6 @@ class ResizingIntSet
   #   self.num_buckets.times do 
   #     @store << []
   #   end
-    puts "hello"
     copied = self.store
     self.store = Array.new(num_buckets*2) { Array.new}
     copied.each do |bucket|
