@@ -1,4 +1,4 @@
-class Cat < ApplicationController
+class CatsController < ApplicationController
   def show
     @cat = Cat.find(params[:id])
     render :show
