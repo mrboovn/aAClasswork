@@ -1,0 +1,19 @@
+<form action="<%=cats_url%>" method='POST'>
+  <label for="name">Name:</label>
+  <input id="name" type="text" name="cats[name]" value="<%= @cats.name %>">
+  <label for="sex" >Sex:</label>
+  <input id="sex" type="radio" name="cats[sex]" value="<%= @cats.sex %>">
+  <label for="color">Color:</label>
+  <select id="cat_color" name="cat[color]">
+    <option value="">'-- select a color --'</option>
+    <option value="black">Black</option>
+    <option value="white">White</option>
+    <option value="brown">Brown</option>
+    <option value="gray">Gray</option>
+  </select>
+  <label for="birth_date">Birth_Date:</label>
+  <input id="birth_date" type="date" name="cats[birth_date]" value="<%= @cats.birth_date %>">
+  <label for="description">Description:</label>
+  <textarea id="description" name="cats[description]" value="<%= @cats.description %>"></textarea>
+</form>
+
